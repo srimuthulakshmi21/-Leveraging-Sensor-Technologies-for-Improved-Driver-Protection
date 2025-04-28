@@ -1,0 +1,105 @@
+include <LiquidCrystal.h>
+const int rs=13 en=12, d4=11. d5=10 d6=9 d7=8;
+LiquidCrystal lcd (rs,en,d4,d5,d6,d7);
+int buzz = 2;
+int hb = 5;
+int sw = 6;
+int eye = 7;
+char data = 0;
+int i=0 //Variable for storing received data
+const int relay1 = 3;
+const int relay2 = 4;
+int flag, flag1, flag2, flag3=0;
+int temp;
+int T:
+int HB, hflag, SW, E;
+int hbcount, 1;
+void setup()
+{
+Serial.begin(9600); 
+pinMode(relay1, OUTPUT);
+pinMode(relay2, OUTPUT);
+pinMode(buzz, OUTPUT);
+pinMode(eye, INPUT);
+pinMode(sw, INPUT_PULLUP);
+pinMode(hb, INPUT);
+digitalWrite(relay1, LOW);
+digitalWrite(relay2, LOW);
+lcd.begin(16, 2);
+lcd.setCursor(0, 0);
+lcd.write(" WELCOME ");
+delay(2000);
+lcd.clear();
+lcd.setCursor(0, 0);
+lcd.write("DRIVER BEHAVIOUR ");
+lcd.setCursor(0, 1);
+lcd.write(" MONITORING ");
+delay(2000);
+lcd.clear();
+}
+void loop()
+{
+HB = digitalRead(hb);
+if ((HB==LOW))
+{
+hbcount++;
+hflag = 0;
+}
+SW = digitalRead(sw);
+if (SW==LOW)
+{ 
+digitalWrite(relay1, HIGH); delay(500);
+}
+if (SW==HIGH)
+{
+digitalWrite(relay1, LOW);
+delay(500);
+}
+E= digitalRead(eye);
+if (E==LOW)
+{Icd.clear();
+lcd.setCursor(0, 1);
+lcd.write(" WAKE UP ");
+digitalWrite(buzz, HIGH);
+delay(500);
+digitalWrite(relay1, HIGH);
+delay(100);
+digitalWrite(relay1, LOW);
+delay(100);
+digitalWrite(relay1, LOW);
+delay(100);
+flag=1;
+lcd.clear();
+}
+lcd.setCursor(0, 0);
+lcd.print("HB=");
+lcd.print(hbcount); 
+lcd.print(" ");
+T = analogRead(A0);
+lcd.write(" HIGH HEART BEAT ");
+l=0;
+hbcount = 0;
+digitalWrite(buzz,HIGH);
+delay(500);
+digitalWrite(relay1, HIGH);
+delay(500);
+digitalWrite(relay1, LOW);
+digitalWrite(relay1, LOW);
+if (temp > 45)
+{
+lcd.clear();
+lcd.setCursor(0, 1);
+lcd.write("HIGH TEMPERATURE ");
+digitalWrite(buzz, HIGH);
+delay(500);
+digitalWrite(relay1, HIGH);
+delay(500);
+digitalWrite(relay1, LOW);
+delay(500);
+digitalWrite(relay1, HIGH);
+}
+lcd.print(" ");
+if (l>159)
+}
+1++;
+}
